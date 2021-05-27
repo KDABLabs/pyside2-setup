@@ -44,7 +44,21 @@
 #include "headergenerator.h"
 #include "qtdocgenerator.h"
 
+#include "generator_dart.h"
+#include "generator_cppwrapper_header.h"
+#include "generator_cppwrapper_impl.h"
+
 #include <exception>
+
+static inline Generators dartGenerators()
+{
+    Generators result;
+    result << GeneratorPtr(new DartGenerator)
+           << GeneratorPtr(new DartFFICPPGenerator)
+           << GeneratorPtr(new DartFFIHeaderGenerator);
+    return result;
+}
+
 
 static const QChar clangOptionsSplitter = u',';
 static const QChar keywordsSplitter = u',';
@@ -396,7 +410,8 @@ void printUsage()
     };
     printOptions(s, generalOptions);
 
-    const Generators generators = shibokenGenerators() + docGenerators();
+    const Generators generators = shibokenGenerators() + docGenerators() + dartGenerators();
+
     for (const GeneratorPtr &generator : generators) {
         const OptionDescriptions options = generator->options();
         if (!options.isEmpty()) {
@@ -443,6 +458,9 @@ int shibokenMain(int argc, char *argv[])
     qSetGlobalQHashSeed(0);
     // needed by qxmlpatterns
     QCoreApplication app(argc, argv);
+
+    Q_INIT_RESOURCE(dartagnan);
+
     ReportHandler::install();
     if (ReportHandler::isDebug(ReportHandler::SparseDebug))
         qCInfo(lcShiboken()).noquote().nospace() << QCoreApplication::arguments().join(QLatin1Char(' '));
@@ -482,6 +500,8 @@ int shibokenMain(int argc, char *argv[])
         }
     } else if (generatorSet.isEmpty() || generatorSet == QLatin1String("shiboken")) {
         generators = shibokenGenerators();
+    } else if (generatorSet == QLatin1String("dart")) {
+        generators = dartGenerators();
     } else {
         errorPrint(QLatin1String("Unknown generator set, try \"shiboken\" or \"qtdoc\"."));
         return EXIT_FAILURE;
