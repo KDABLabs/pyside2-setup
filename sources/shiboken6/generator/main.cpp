@@ -711,7 +711,7 @@ int shibokenMain(int argc, char *argv[])
 
     const bool usePySideExtensions = generators.constFirst().data()->usePySideExtensions();
 
-    const std::optional<ApiExtractorResult> apiOpt = extractor.run(usePySideExtensions);
+    const std::optional<ApiExtractorResult> apiOpt = extractor.run(true || usePySideExtensions);
 
     if (!apiOpt.has_value()) {
         errorPrint(QLatin1String("Error running ApiExtractor."));
