@@ -55,3 +55,8 @@ AbstractMetaFunctionCList ApiExtractorResult::implicitConversions(const Abstract
 {
     return implicitConversions(metaType.typeEntry());
 }
+
+QString ApiExtractorResult::typeSystem() const
+{
+    return m_typeSystem;
+}

@@ -63,6 +63,8 @@ public:
     AbstractMetaFunctionCList implicitConversions(const TypeEntry *type) const;
     AbstractMetaFunctionCList implicitConversions(const AbstractMetaType &metaType) const;
 
+    QString typeSystem() const;
+
 private:
     AbstractMetaClassCList m_metaClasses;
     AbstractMetaClassCList m_smartPointers;
@@ -70,6 +72,7 @@ private:
     AbstractMetaEnumList m_globalEnums;
 
     QHash<const TypeEntry *, AbstractMetaEnum> m_enums;
+    QString m_typeSystem;
 };
 
 #endif // APIEXTRACTORRESULT_H
