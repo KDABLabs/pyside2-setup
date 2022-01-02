@@ -81,6 +81,7 @@ public:
 
     QString m_name;
     QString m_originalName;
+    QString m_fieldName;
     Documentation m_doc;
     mutable QString m_cachedMinimalSignature;
     mutable QString m_cachedSignature;
@@ -443,6 +444,16 @@ AbstractMetaFunction *AbstractMetaFunction::copy() const
     cpy->d->m_arguments = d->m_arguments;
 
     return cpy;
+}
+
+void AbstractMetaFunction::setFieldName(const QString &name)
+{
+    d->m_fieldName = name;
+}
+
+QString AbstractMetaFunction::fieldName() const
+{
+    return d->m_fieldName;
 }
 
 bool AbstractMetaFunction::usesRValueReferences() const

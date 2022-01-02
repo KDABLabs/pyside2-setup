@@ -439,6 +439,9 @@ public:
     void formatDebugVerbose(QDebug &debug) const;
 #endif
 
+    void setFieldName(const QString &name);
+    QString fieldName() const;
+
     SourceLocation sourceLocation() const;
     void setSourceLocation(const SourceLocation &sourceLocation);
 
