@@ -13,14 +13,14 @@ include(cmake/ShibokenSetup.cmake)
 add_subdirectory(ApiExtractor) # Uses libclang
 add_subdirectory(generator) # Uses ApiExtractor And QtCore
 
-add_subdirectory(libshiboken) # Uses Python
-add_subdirectory(shibokenmodule) # Uses libshiboken
+# add_subdirectory(libshiboken) # Uses Python
+# add_subdirectory(shibokenmodule) # Uses libshiboken
 
 add_subdirectory(data)
-add_subdirectory(doc)
+#add_subdirectory(doc)
 
-if(BUILD_TESTS)
-    enable_testing()
-    add_subdirectory(tests)
-endif()
+#if(BUILD_TESTS)
+#    enable_testing()
+#    add_subdirectory(tests)
+#endif()
 
