@@ -34,6 +34,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QDir>
 #include <QtCore/QDebug>
+#include <QtCore/QString>
 
 #include <cstdio>
 

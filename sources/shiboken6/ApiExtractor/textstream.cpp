@@ -29,6 +29,7 @@
 #include "textstream.h"
 
 #include <cstring>
+#include <QString>
 
 TextStream::TextStream(QIODevice *device, Language l) :
     m_str(device), m_language(l)
