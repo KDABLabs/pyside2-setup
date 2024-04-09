@@ -1,2 +1,0 @@
-include(@QT_SRC_DIR@/../qtremoteobjects/src/remoteobjects/doc/qtremoteobjects.qdocconf)
-include(../pyside-config.qdocconf)

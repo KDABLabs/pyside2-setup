@@ -1,2 +1,0 @@
-include(@QT_SRC_DIR@/../qtconnectivity/src/bluetooth/doc/qtbluetooth.qdocconf)
-include(../pyside-config.qdocconf)

@@ -1,8 +1,0 @@
-setuptools>=48.0
-sphinx
-sphinx-panels
-six
-wheel>=0.35
-PyOpenGL
-pyinstaller==3.6
-nuitka
